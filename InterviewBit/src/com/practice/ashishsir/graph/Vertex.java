@@ -97,4 +97,16 @@ public class Vertex {
 	public boolean isVisited() {
 		return visited;
 	}
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Vertex)) {
+			return false;
+		}
+		Vertex myVertex = (Vertex)obj;
+		return label.equals(myVertex.getLabel()) && edges.containsAll(myVertex.edges);
+	}
+	@Override
+	public int hashCode() {
+		return label.hashCode();
+	}
 }
