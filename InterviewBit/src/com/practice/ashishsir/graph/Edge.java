@@ -4,7 +4,7 @@ package com.practice.ashishsir.graph;
  * @author rdansena
  *
  */
-public class Edge {
+public class Edge implements Comparable<Edge>{
 	Vertex one, two;
 	int weight;
 
@@ -85,5 +85,19 @@ public class Edge {
 		} else {
 			return null;
 		}
+	}
+
+	@Override
+	public int compareTo(Edge o) {
+		return this.weight - o.weight;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Edge)) {
+			return false;
+		}
+		Edge myEdge = (Edge) obj;
+		return one.equals(myEdge.getOne()) && two.equals(myEdge.getTwo()) && weight==myEdge.getWeight();
 	}
 }
